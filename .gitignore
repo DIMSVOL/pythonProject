@@ -1,0 +1,8 @@
+*.pyc
+*.pyo
+*.so
+*.class
+*~
+
+# Ignore database files
+db/*.db
