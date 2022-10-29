@@ -1,0 +1,67 @@
+{
+    "info": {
+        "description": "Swagger Documentation for Tornado API",
+        "title": "Tornado API",
+        "version": "1.0.0"
+    },
+
+    "servers": [
+        {
+            "url": "http://localhost:8088/",
+            "description": "Local environment"
+        }
+    ],
+    "paths": {
+        "/api/login": {
+            "post": {
+                "summary": "User Authorization",
+                "requestBody": {
+                    "description": "User log in",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "login": {
+                                      "type": "string"
+                                },
+                                    "password": {
+                                      "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                  "200": {
+                    "description": "User succesfully authorized"
+                  },
+                  "400": {
+                    "description": "Bad Request"
+                  },
+                  "401": {
+                    "description": "Wrong password"
+                  }
+
+                }
+            }
+        },
+        "/api/data": {
+            "get": {
+                "summary": "Providing data",
+                "responses": {
+                  "200": {
+                    "description": "Data successfully provided to user"
+                  },
+                  "403": {
+                    "description": "Not Authorized"
+                  }
+                }
+            }
+        }
+    },
+
+
+    "openapi": "3.0.2"
+}
